@@ -36,7 +36,7 @@ job = client.load_table_from_dataframe(follow,'variaveis_de_ambiente.config_for_
 
 
 
-access_token = 'EAARcGZBCPaSEBOxCOqxDi9OpcJmaJDdV24fcVkGXRgsCzrjDR4ZCDQ1XGmXYid0QhbUTm760cMFHZAF2n1YJSHFcbg55wzlASl3Tyl4hFZABV7pGIzSoCGvaJ7vHVeRRQUE47zr8b9RgSjIYs1VvOZCZCs3JmZBd1XmCIFlAQ0WgV8KrPhzMLgF4Dk6UZCn8'
+access_token = 'EAAFYlVUbH3cBO03DOeKLQGkZBDZB9krTqlBVfmnxcnPW3JpH8QY4cyeQZA9CFqY3PSabOYAVQxjumIRVBuWMkvxIt31yf60076AZB7P7W1ExVoKOQWHIyMCeG8On6csGe2sQXQO1rB4wlLvhz8AIjBZB2XC23nOzEP6SSoqq2rcfvpdBnJV1aCp5QSm6LUgic'
 business_id = '852845231759667'
 ig_user_id_br = '17841408841693316'
 ig_user_id_latam = '17841450884332431'
@@ -44,7 +44,7 @@ ig_user_id_seliga = '17841452302292722'
 ad_account = 'act_697816211148710'
 
 base = "https://graph.facebook.com/"
-version = "v17.0/"
+version = "v18.0/"
 #limite_comentarios = 10
 limite_postagens = 200000
 
