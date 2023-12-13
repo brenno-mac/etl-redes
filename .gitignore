@@ -1,3 +1,6 @@
 /venv
 /__pcycache__
 *.json
+midias/*.json
+story/*.json
+naomidia/*.json
