@@ -40,7 +40,7 @@ date_end = time.mktime(yesterday_obj.timetuple())
 
 base = configg['base'][0]
 version = configg['version'][0]
-ig_user_id = configg['ig_user_id_seliga'][0]
+ig_user_id = configg['ig_user_id_br'][0]
 limite_postagens = configg['limite_postagens'][0]
 access_token = configg['access_token'][0]
 
@@ -146,6 +146,7 @@ for x in data_total[(data_total.media_product_type == 'FEED') & (data_total.medi
 with open("data_reels_total.json", "w") as file:
     file.write(json.dumps(data_reels_total, indent = 4))
 
+
 with open("data_carousel_total.json", "w") as file:
     file.write(json.dumps(data_carousel_total, indent = 4))
 
@@ -190,7 +191,6 @@ for i in range(len(reels['id'])):
 
     
 reels_full = pd.merge(data_total,reels,on='id',how='right')
-
 
 #%%
 
