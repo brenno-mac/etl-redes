@@ -37,63 +37,29 @@ limite_postagens = configg['limite_postagens'][0]
 access_token = configg['access_token'][0]
 
 
-###MANDAR DATA_TOTAL###
+###INSTABR###
 data_total(base, version, ig_user_id_br, limite_postagens, access_token, 'instagrambr')
-
-# data_total(base, version, ig_user_id_br, limite_postagens, access_token, 'instagramlatam')
-
-# data_total(base, version, ig_user_id_br, limite_postagens, access_token, 'instagramseliga')
-
-
-###FAZER O DF PARA AS FUNÇÕES ABAIXO###
 df_total_br = query2(base, version, ig_user_id_br, limite_postagens, access_token)
-
-# df_total_latam = query2(base, version, ig_user_id_latam, limite_postagens, access_token)
-
-# df_total_seliga = query2(base, version, ig_user_id_seliga, limite_postagens, access_token)
-
-
-
-###MANDAR O REELS###
 query_reels(df_total_br, base, version, limite_postagens, access_token, 'instagrambr')
-
-# query_reels(df_total_latam, base, version, limite_postagens, access_token, 'instagramlatam')
-
-# query_reels(df_total_seliga, base, version, limite_postagens, access_token, 'instagramseliga')
-
-
-
-###MANDAR O CAROUSEL###
 query_carousel(df_total_br ,base, version, limite_postagens, access_token, 'instagrambr')
-
-# query_carousel(df_total_latam ,base, version, limite_postagens, access_token, 'instagramlatam')
-
-# query_carousel(df_total_seliga ,base, version, limite_postagens, access_token, 'instagramseliga')
-
-
-
-###MANDAR O IMAGE###
 query_image(df_total_br, base, version, limite_postagens, access_token, 'instagrambr')
-
-# query_image(df_total_latam, base, version, limite_postagens, access_token, 'instagramlatam')
-
-# query_image(df_total_seliga, base, version, limite_postagens, access_token, 'instagramseliga')
-
-
-
-
-###MANDAR O VIDEO_TV###
 query_video_tv(df_total_br, base, version, limite_postagens, access_token, 'instagrambr')
-
-# query_video_tv(df_total_latam, base, version, limite_postagens, access_token, 'instagramlatam')
-
-# query_video_tv(df_total_seliga, base, version, limite_postagens, access_token, 'instagramseliga')
-
-
-
-###MANDAR O VIDEO_P###
 query_video_p(df_total_br, base, version, limite_postagens, access_token, 'instagrambr')
 
-# query_video_p(df_total_latam, base, version, limite_postagens, access_token, 'instagramlatam')
+###INSTALATAM###
+# data_total(base, version, ig_user_id_latam, limite_postagens, access_token, 'instagrambr')
+# df_total_latam = query2(base, version, ig_user_id_latam, limite_postagens, access_token)
+# query_reels(df_total_latam, base, version, limite_postagens, access_token, 'instagrambr')
+# query_carousel(df_total_latam ,base, version, limite_postagens, access_token, 'instagrambr')
+# query_image(df_total_latam, base, version, limite_postagens, access_token, 'instagrambr')
+# query_video_tv(df_total_latam, base, version, limite_postagens, access_token, 'instagrambr')
+# query_video_p(df_total_latam, base, version, limite_postagens, access_token, 'instagrambr')
 
-# query_video_p(df_total_seliga, base, version, limite_postagens, access_token, 'instagramseliga')
+###INSTASELIGA###
+# data_total(base, version, ig_user_id_seliga, limite_postagens, access_token, 'instagrambr')
+# df_total_seliga = query2(base, version, ig_user_id_latam, limite_postagens, access_token)
+# query_reels(df_total_seliga, base, version, limite_postagens, access_token, 'instagrambr')
+# query_carousel(df_total_seliga ,base, version, limite_postagens, access_token, 'instagrambr')
+# query_image(df_total_seliga, base, version, limite_postagens, access_token, 'instagrambr')
+# query_video_tv(df_total_seliga, base, version, limite_postagens, access_token, 'instagrambr')
+# query_video_p(df_total_seliga, base, version, limite_postagens, access_token, 'instagrambr')

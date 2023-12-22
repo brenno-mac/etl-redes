@@ -48,8 +48,8 @@ access_token = configg['access_token'][0]
 
     ###FUNÇÕES###
     
-def data_total(base, version, ig_user_id_br, limite_postagens, access_token, database):
-    timeline = get(f"{base}/{version}/{ig_user_id_br}/media?fields=caption%2Ccomments_count%2Clike_count%2Cmedia_product_type%2Cmedia_type%2Cmedia_url%2Cpermalink%2Cthumbnail_url%2Ctimestamp&limit={limite_postagens}&access_token={access_token}")
+def data_total(base, version, ig_user_id, limite_postagens, access_token, database):
+    timeline = get(f"{base}/{version}/{ig_user_id}/media?fields=caption%2Ccomments_count%2Clike_count%2Cmedia_product_type%2Cmedia_type%2Cmedia_url%2Cpermalink%2Cthumbnail_url%2Ctimestamp&limit={limite_postagens}&access_token={access_token}")
     timeline = timeline.json()
     with open("instagram_media.json", "w") as file:
         file.write(json.dumps(timeline, indent = 4))
