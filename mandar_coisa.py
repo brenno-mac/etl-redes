@@ -65,3 +65,31 @@ follow2 = pd.DataFrame.from_dict(follow2, orient='index').T
 
 job = client.load_table_from_dataframe(follow2,'variaveis_de_ambiente.config_for_etl_instagram')
 
+
+configinsta = "SELECT * FROM `datalake-2022.instagrambr.data_total` "
+configg = pd.read_gbq(configinsta, project_id = project_id, dialect = 'standard')
+
+configg.timestamp
+
+configg['timestamp'] = pd.to_datetime(configg['timestamp'], format="%Y-%m-%dT%H:%M:%S%z", errors='coerce')
+configg['timestamp'] = configg['timestamp'].dt.tz_localize(None)
+    
+configg.timestamp
+
+schema_data = [
+        bigquery.SchemaField('caption','STRING'),
+        bigquery.SchemaField('comments_count','INT64'),
+        bigquery.SchemaField('like_count','INT64'),
+        bigquery.SchemaField('media_product_type','STRING'),
+        bigquery.SchemaField('media_type','STRING'),
+        bigquery.SchemaField('media_url','STRING'),
+        bigquery.SchemaField('permalink','STRING'),
+        bigquery.SchemaField('timestamp','DATETIME'),
+        bigquery.SchemaField('id','STRING'),
+        bigquery.SchemaField('date_etl','DATE'),
+    ]
+
+job_config_data = bigquery.LoadJobConfig(write_disposition=bigquery.WriteDisposition.WRITE_APPEND, schema = schema_data)
+
+foi = client.load_table_from_dataframe(configg,'instagrambr.data_total2', job_config=job_config_data)
+      
