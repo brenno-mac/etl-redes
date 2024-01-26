@@ -1,5 +1,8 @@
 ###IMPORTANDO PACOTES NECESSÁRIOS###
 
+import sys
+sys.path.append('/home/brenno/git/etl_redes/midias/')
+
 import pandas as pd
 import tomli
 from datetime import datetime, timedelta
@@ -46,6 +49,8 @@ query_image(df_total_br, base, version, limite_postagens, access_token, 'instagr
 query_video_tv(df_total_br, base, version, limite_postagens, access_token, 'instagrambr')
 query_video_p(df_total_br, base, version, limite_postagens, access_token, 'instagrambr')
 
+
+
 ###INSTALATAM###
 # data_total(base, version, ig_user_id_latam, limite_postagens, access_token, 'instagrambr')
 # df_total_latam = query2(base, version, ig_user_id_latam, limite_postagens, access_token)
@@ -56,10 +61,10 @@ query_video_p(df_total_br, base, version, limite_postagens, access_token, 'insta
 # query_video_p(df_total_latam, base, version, limite_postagens, access_token, 'instagrambr')
 
 ###INSTASELIGA###
-# data_total(base, version, ig_user_id_seliga, limite_postagens, access_token, 'instagrambr')
-# df_total_seliga = query2(base, version, ig_user_id_latam, limite_postagens, access_token)
-# query_reels(df_total_seliga, base, version, limite_postagens, access_token, 'instagrambr')
-# query_carousel(df_total_seliga ,base, version, limite_postagens, access_token, 'instagrambr')
-# query_image(df_total_seliga, base, version, limite_postagens, access_token, 'instagrambr')
-# query_video_tv(df_total_seliga, base, version, limite_postagens, access_token, 'instagrambr')
-# query_video_p(df_total_seliga, base, version, limite_postagens, access_token, 'instagrambr')
+data_total(base, version, ig_user_id_seliga, limite_postagens, access_token, 'instagramseliga')
+df_total_seliga = query2(base, version, ig_user_id_seliga, limite_postagens, access_token)
+query_reels(df_total_seliga, base, version, limite_postagens, access_token, 'instagramseliga')
+query_carousel(df_total_seliga ,base, version, limite_postagens, access_token, 'instagramseliga')
+query_image(df_total_seliga, base, version, limite_postagens, access_token, 'instagramseliga')
+query_video_tv(df_total_seliga, base, version, limite_postagens, access_token, 'instagramseliga')
+query_video_p(df_total_seliga, base, version, limite_postagens, access_token, 'instagramseliga')

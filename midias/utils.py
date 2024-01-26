@@ -81,10 +81,10 @@ def data_total(base, version, ig_user_id, limite_postagens, access_token, databa
 
     foi = client.load_table_from_dataframe(df,f'{database}.data_total', job_config=job_config_data)
           
-    return currentdate
+    return foi.result
      
-def query2(base, version, ig_user_id_br, limite_postagens, access_token):
-    timeline = get(f"{base}/{version}/{ig_user_id_br}/media?fields=caption%2Ccomments_count%2Clike_count%2Cmedia_product_type%2Cmedia_type%2Cmedia_url%2Cpermalink%2Cthumbnail_url%2Ctimestamp&limit={limite_postagens}&access_token={access_token}")
+def query2(base, version, ig_user_id, limite_postagens, access_token):
+    timeline = get(f"{base}/{version}/{ig_user_id}/media?fields=caption%2Ccomments_count%2Clike_count%2Cmedia_product_type%2Cmedia_type%2Cmedia_url%2Cpermalink%2Cthumbnail_url%2Ctimestamp&limit={limite_postagens}&access_token={access_token}")
     timeline = timeline.json()
     with open("instagram_media.json", "w") as file:
         file.write(json.dumps(timeline, indent = 4))
@@ -97,11 +97,11 @@ def query2(base, version, ig_user_id_br, limite_postagens, access_token):
     df['timestamp'] = pd.to_datetime(df['timestamp'], format="%Y-%m-%dT%H:%M:%S%z", errors='coerce')
     df['timestamp'] = df['timestamp'].dt.tz_localize(None)
     df['date_etl'] = currentdate
-    df['date_etl'] = pd.to_datetime(df['date_etl'], format="%d/%m/%Y", errors='coerce')
+    # df['date_etl'] = pd.to_datetime(df['date_etl'], format="%d/%m/%Y", errors='coerce')
     
     return df
                  
-ai = query2(base, version, ig_user_id_br, limite_postagens, access_token)
+# ai = query2(base, version, 17841452302292722, limite_postagens, access_token)
 
 def query_reels(df,base, version, limite_postagens, access_token, database):
     data_reels_total = []
@@ -262,8 +262,8 @@ def query_image(df_total, base, version, limite_postagens, access_token, databas
     image_full = pd.merge(df_total,final_df,on='id',how='right')
     
     image_full.rename(columns={"Impressões":"impressions",
-                                  "Alcance":"reach",
-                                  "Salvos":"saved",
+                                  "Contas alcançadas":"reach",
+                                  "Salvo":"saved",
                                   "Compartilhamentos":"shares",
                                   "Interações com publicações":"engagement",
                                   "Atividade do perfil":"profile_activity",
@@ -400,8 +400,8 @@ def query_video_p(df_total, base, version, limite_postagens, access_token, datab
     video_full.drop(columns=['Comentários', 'Curtidas'], inplace=True)
     
     video_full.rename(columns={"Impressões":"impressions",
-                                  "Alcance":"reach",
-                                  "Salvos":"saved",
+                                  "Contas alcançadas":"reach",
+                                  "Salvo":"saved",
                                   "Visualizações de vídeo":"video_views",
                                   "Atividade do perfil":"profile_activity",
                                   "Interações com publicações":"engagement",
@@ -441,4 +441,12 @@ def query_video_p(df_total, base, version, limite_postagens, access_token, datab
     
     
     return foi.result
+
+
+
+
+
+
+
+
 
